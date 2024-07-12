@@ -85,6 +85,18 @@ If you don't have `pnpm` installed globally, you can install it using `npm`:
 npm install -g pnpm
 ```
 
+# dev
+1. Clone the repository.
+2. Configure the enviroment variables.
+3. execute the command 
+```bash
+pnpm i
+```
+4. Up the database with the command 
+```bash
+docker compose up -d
+```
+
 ## Technologies Used
 
 TypeScript: Programming language
