@@ -1,15 +1,21 @@
 import { Router } from "express";
-
+import { AuthController } from "./controller";
+import { UserRepositoryImpl } from "../../infrastructure/repositories";
+import { UserDatasourceImpl } from "../../infrastructure/datasources";
 
 export class Authroutes {
     public static get routes():Router{
         const router = Router();
 
+        const datasource = new UserDatasourceImpl();
+        const userRepository = new UserRepositoryImpl(datasource)
 
-        router.post('/login');
-        router.post('/register');
+        const controller = new AuthController(userRepository);
 
-        router.get('/validate-email/:token');
+        router.post('/login', controller.loginUser);
+        router.post('/register', controller.registerUser);
+
+        router.get('/validate-email/:token', controller.ValidateUser);
 
         return router;
     }

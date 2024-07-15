@@ -28,9 +28,7 @@ export class UserDatasourceImpl implements UserDatasource {
                     role
                 }
             }
-        )
-        console.log(newUser)
-        
+        )        
         return UserEntity.fromObject(newUser);
 
     }
